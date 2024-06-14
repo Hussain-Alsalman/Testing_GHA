@@ -35,8 +35,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Running the code
         run: | 
-        devtools::install_github("Hussain-Alsalman/tasi")
-        source("./job.r")
+          devtools::install_github("Hussain-Alsalman/tasi")
+          source("./job.r")
         shell: Rscript {0}
         
         
