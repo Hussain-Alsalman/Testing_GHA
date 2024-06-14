@@ -51,6 +51,7 @@ jobs:
             any::tidyr
             any::httr
             any::progress
+            any::ggplot2
 
       # Runs a set of commands using the runners shell
       - name: Running the code
