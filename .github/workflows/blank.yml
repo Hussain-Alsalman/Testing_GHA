@@ -6,7 +6,7 @@ name: R-script-demo
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '*/10 * * * *'
+    - cron:  '*/30 * * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,7 +29,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Installing R packages
         run:  |
-          install.packages(c("devtools","rjson","xts","dplyr","magrittr","rvest","tibble","TTR","assertthat","janitor","lubridate","quantmod","snakecase","stringr","tidyr","httr","progress"))
+          install.packages(c("curl","devtools","rjson","xts","dplyr","magrittr","rvest","tibble","TTR","assertthat","janitor","lubridate","quantmod","snakecase","stringr","tidyr","httr","progress"), dependencies = TRUE)
         shell: Rscript {0}
 
       # Runs a set of commands using the runners shell
