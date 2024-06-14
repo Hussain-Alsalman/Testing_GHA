@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: R-script-demo
 
 # Controls when the workflow will run
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '00 3 */ * *'
+    - cron:  '*/10 * * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,8 +17,6 @@ jobs:
   runs-r-script:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       
@@ -31,11 +29,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Installing R packages
         run:  |
-          install.packages(c("rjson","xts","dplyr","magrittr","rvest","tibble","TTR","assertthat","janitor","lubridate","quantmod","snakecase","stringr","tidyr","httr","progress")
+          install.packages(c("devtools","rjson","xts","dplyr","magrittr","rvest","tibble","TTR","assertthat","janitor","lubridate","quantmod","snakecase","stringr","tidyr","httr","progress"))
         shell: Rscript {0}
 
       # Runs a set of commands using the runners shell
       - name: Running the code
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        run: | 
+        devtools::install_github("Hussain-Alsalman/tasi")
+        shell: Rscript {0}
+        
+        
