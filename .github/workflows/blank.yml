@@ -36,6 +36,7 @@ jobs:
       - name: Running the code
         run: | 
         devtools::install_github("Hussain-Alsalman/tasi")
+        source("./job.r")
         shell: Rscript {0}
         
         
