@@ -1,27 +1,5 @@
-devtools::github_install("Hussain-Alsalman/tasi)
 library("tasi")
-
 df <- get_index_records("2021-01-01","2022-12-31")
-df %>%  ggplot(mapping = aes(x = as.POSIXct(transactionDate), y = previousClosePrice)) + geom_line() + 
+ plt1 <- df %>%  ggplot(mapping = aes(x = as.POSIXct(transactionDate), y = previousClosePrice)) + geom_line() + 
   labs(title = "Historical data for tasi index 2021-2022", x = "Date", y = "TASI index") + theme_classic()
-
-
-
-
-#dependencies 
-    rjson,
-    xts,
-    dplyr,
-    magrittr,
-    rvest,
-    tibble,
-    TTR,
-    assertthat,
-    janitor,
-    lubridate,
-    quantmod,
-    snakecase,
-    stringr,
-    tidyr,
-    httr, 
-    progress,
+ggsave("myplot.png", plot = plt1)
